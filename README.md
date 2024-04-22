@@ -16,6 +16,8 @@ Currently, two official plugins are available:
 - Validation for forms
  - useref hook
 - firebase setup and deployment
+- create signup in firebase
+
 
 # Features
 - Browse page after authentication

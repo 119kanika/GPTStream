@@ -1,11 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidateData } from "../utils/Validation";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/Firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
 
-  const [errorMessage, setErrorMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -16,9 +19,53 @@ const Login = () => {
 
   const handleButtonClick = () => {
     //validate form data
-    const message = checkValidateData(email.current.value, password.current.value);
+    const message = checkValidateData(
+      email.current.value,
+      password.current.value
+    );
     setErrorMessage(message);
 
+    if (message) return;
+
+    // sign in sign up logic
+    if (!isSignInForm) {
+      //for signup logic
+      createUserWithEmailAndPassword(
+        auth, 
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage);
+          // ..
+        });
+    } else {
+      //for signup logic
+      signInWithEmailAndPassword(
+        auth, 
+        email.current.value,
+        password.current.value
+      )
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage(errorMessage)
+  });
+    }
   };
 
   return (
@@ -32,7 +79,10 @@ const Login = () => {
         />
       </div>
 
-      <form onSubmit={(e) => e.preventDefault()} className="p-12 bg-black absolute w-1/4 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-lg">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="p-12 bg-black absolute w-1/4 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-lg"
+      >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
