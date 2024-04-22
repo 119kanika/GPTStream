@@ -14,6 +14,7 @@ Currently, two official plugins are available:
 - Header
 - Login form and sign up form
 - Validation for forms
+ - useref hook
 
 # Features
 - Browse page after authentication
