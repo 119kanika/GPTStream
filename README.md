@@ -17,7 +17,8 @@ Currently, two official plugins are available:
  - useref hook
 - firebase setup and deployment
 - create signup and login in firebase
-- create store with redux
+- create store with redu
+- update store/userSlice with user info after they sign up
 
 # Features
 - Browse page after authentication
