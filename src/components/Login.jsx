@@ -68,10 +68,11 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
-        <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
+        <div className="py-4 cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm ? (
             <p className="text-zinc-400">
-              New to Netflix?<span className="text-white">Sign Up Now.</span>
+              New to Netflix?
+              <span className="text-white">Sign Up Now.</span>
             </p>
           ) : (
             <p className="text-zinc-400">
@@ -79,7 +80,7 @@ const Login = () => {
               <span className="text-white">Sign In Now.</span>
             </p>
           )}
-        </p>
+        </div>
       </form>
     </div>
   );

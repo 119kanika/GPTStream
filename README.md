@@ -15,6 +15,7 @@ Currently, two official plugins are available:
 - Login form and sign up form
 - Validation for forms
  - useref hook
+- firebase setup and deployment
 
 # Features
 - Browse page after authentication
