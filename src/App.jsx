@@ -1,12 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import './App.css'
+import Body from './components/Body'
 
 function App() {
 
   return (
     <>
-      <h1 className='text-3xl underline'>Hello</h1>
+    <Body/>
     </>
   )
 }

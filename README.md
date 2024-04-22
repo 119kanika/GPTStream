@@ -11,7 +11,9 @@ Currently, two official plugins are available:
 
 - npm create vite@latest
 - configure tailwind for vite
-
+- Header
+- Login form and sign up form
+- Validation for forms
 
 # Features
 - Browse page after authentication
