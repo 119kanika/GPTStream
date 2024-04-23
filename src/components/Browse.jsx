@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 import Header from "./Header"
 import useNowPlayingMovies from "../customHooks/useNowPlayingMovies"
+import MainContainer from "./MainContainer";
+import SecondContainer from "./SecondContainer";
 
 const Browse = () => {
 
@@ -11,6 +13,8 @@ const Browse = () => {
   return (
     <div>
       <Header/>
+      <MainContainer/>
+      <SecondContainer/>
     </div>
   )
 }

@@ -8,6 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
+# Constructing the App
 
 - npm create vite@latest
 - configure tailwind for vite
@@ -44,3 +45,14 @@ Currently, two official plugins are available:
 - GPT
   - search bar
   - movie suggestions
+
+
+# Browse page structure
+- main video container 
+  (needs data of a movie with trailer and title)
+  - video bg
+  - video title
+
+- Movie list container
+  - movie * n
+    - movieCards * n
