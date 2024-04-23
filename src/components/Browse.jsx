@@ -1,21 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { useEffect } from "react"
-import { API_OPTIONS } from "../utils/Constant"
 import Header from "./Header"
+import useNowPlayingMovies from "../customHooks/useNowPlayingMovies"
 
 const Browse = () => {
 
-  //api call
-  const getNowPlayingMovies = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', API_OPTIONS)
-    const json = await data.json()
-    console.log(json.results);
-  }
-
-  useEffect(() => {
-    getNowPlayingMovies();
-  }, [])
-
+  //calling the api, getting data and updating store using dispatch.
+  useNowPlayingMovies();
+  
   return (
     <div>
       <Header/>

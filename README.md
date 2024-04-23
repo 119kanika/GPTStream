@@ -24,7 +24,8 @@ Currently, two official plugins are available:
 - fetch data from TMDB 
 - bugfix of redirect user to browse page if logged in or sign up page if logged out.
 - unsubscribed to the onAuthStateChanged callback.
-- 
+- register for tmdb api and create an app and get access token.
+- Get Data from tmdb now playing movies list api
 
 
 # Features
