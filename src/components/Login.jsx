@@ -8,9 +8,9 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/Firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/UserSlice";
+import { BG_IMG, PHOTO_URL } from "../utils/Constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -18,7 +18,6 @@ const Login = () => {
 
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const navigate = useNavigate();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -52,8 +51,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            photoURL: PHOTO_URL,
           })
             .then(() => {
                 const {uid, email, displayName, photoURL} = auth.currentUser;
@@ -67,14 +65,12 @@ const Login = () => {
                 })
               );
               // then navigate
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
               setErrorMessage(error.message);
             });
 
-          console.log(user);
           // ...
         })
         .catch((error) => {
@@ -93,8 +89,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -110,7 +104,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://maven-uploads.s3.amazonaws.com/120386748/projects/netflix%20image.jpg"
+          src={BG_IMG}
           alt="bg image"
           className="bg-cover"
         />

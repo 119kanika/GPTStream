@@ -19,6 +19,13 @@ Currently, two official plugins are available:
 - create signup and login in firebase
 - create store with redu
 - update store/userSlice with user info after they sign up
+- implement sign out
+- update profile
+- fetch data from TMDB 
+- bugfix of redirect user to browse page if logged in or sign up page if logged out.
+- unsubscribed to the onAuthStateChanged callback.
+- 
+
 
 # Features
 - Browse page after authentication
