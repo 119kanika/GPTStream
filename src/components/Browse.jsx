@@ -5,12 +5,16 @@ import useNowPlayingMovies from "../customHooks/useNowPlayingMovies"
 import MainContainer from "./MainContainer";
 import SecondContainer from "./SecondContainer";
 import usePopularMovies from "../customHooks/usePopularMovies";
+import useTopRatedMovies from "../customHooks/useTopratedMovies";
+import useUpcomingMovies from "../customHooks/useUpcomingMovies";
 
 const Browse = () => {
 
   //calling the api, getting data and updating store using dispatch.
   useNowPlayingMovies();
   usePopularMovies();
+  useTopRatedMovies();
+  useUpcomingMovies();
   
   return (
     <div>
