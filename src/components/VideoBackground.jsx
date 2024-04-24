@@ -1,47 +1,44 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { useEffect } from "react";
-import { API_OPTIONS } from "../utils/Constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addTrailerVideo } from "../utils/MovieSlice";
+import useMovieTrailer from "../customHooks/useMovieTrailer";
+import { useState } from "react";
 
 const VideoBackground = ({ movieId }) => {
+  const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
 
-  const trailerVideo = useSelector(store => store.movies?.trailerVideo)
-  const dispatch = useDispatch();
+  //fetch trailer video from movie id and updating store with trailer video data.
+  useMovieTrailer(movieId);
 
-  //fetch trailer video from movie id
-  const getMovieVideo = async () => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
-      API_OPTIONS
-    );
-    const json = await data.json();
+  const [audio, setAudio] = useState(1);
 
-    const filteredData = json.results.filter(
-      (video) => video.type === "Trailer"
-    );
-    const trailer =
-      filteredData.length == 0 ? filteredData[0] : json.results[0];
-      
-      dispatch(addTrailerVideo(trailer))
+  const handleAudioPlay = () => {
+    if (audio) setAudio(0);
+    else setAudio(1);
   };
 
-  useEffect(() => {
-    getMovieVideo();
-  }, []);
-
   return (
-    <div>
+    <div className=" relativew-screen ">
       <iframe
-        width="560"
-        height="315"
-        src={"https://www.youtube.com/embed/" + trailerVideo?.key}
+        className="w-screen aspect-video"
+        src={
+          "https://www.youtube.com/embed/" +
+          trailerVideo?.key +
+          "?&autoplay=1&mute=" +
+          audio
+        }
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
+
+        <button
+          onClick={handleAudioPlay}
+          className=" absolute right-2 bottom-2 flex items-center justify-center text-xl bg-black w-12 h-12 rounded-full"
+        >
+          🔉
+        </button>
     </div>
   );
 };

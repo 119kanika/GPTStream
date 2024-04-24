@@ -27,6 +27,14 @@ Currently, two official plugins are available:
 - unsubscribed to the onAuthStateChanged callback.
 - register for tmdb api and create an app and get access token.
 - Get Data from tmdb now playing movies list api
+- custom hooks for nowPlayingMovies
+- create movieSlice
+- update store with movies data
+- planning for main and secondary container
+- fetch data for trailer video
+- update store with trailer video data
+- embedded the youtube videe and make it autplay and mute
+- tailwind class to make it look desent
 
 
 # Features
@@ -53,6 +61,7 @@ Currently, two official plugins are available:
   - video bg
   - video title
 
-- Movie list container
+- Movie list container(secondary)
   - movie * n
     - movieCards * n
+  - Trending/now playing/popular/genres/etc movies

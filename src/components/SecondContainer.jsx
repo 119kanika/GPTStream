@@ -1,8 +1,21 @@
+/* eslint-disable no-unused-vars */
+import { useSelector } from "react-redux";
+// import MovieCard from "./MovieCard"
+import MovieList from "./MovieList";
 
 const SecondContainer = () => {
-  return (
-    <div>SecondContainer</div>
-  )
-}
+  const { nowPlayingMovies } = useSelector((store) => store.movies);
 
-export default SecondContainer
+  if (!nowPlayingMovies) return <div>Loading Movies...</div>;
+
+  return (
+    <div className=" bg-black">
+      <div className="-mt-52 pl-12 relative z-20">
+        <MovieList title={"Now Playing"} movies={nowPlayingMovies} />
+        <MovieList title={"Trending"} movies={nowPlayingMovies} />{" "}
+      </div>
+    </div>
+  );
+};
+
+export default SecondContainer;
