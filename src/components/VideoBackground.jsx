@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import useMovieTrailer from "../customHooks/useMovieTrailer";
 import { useState } from "react";
 
 const VideoBackground = ({ movieId }) => {
+
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
 
   //fetch trailer video from movie id and updating store with trailer video data.
@@ -35,7 +36,7 @@ const VideoBackground = ({ movieId }) => {
 
         <button
           onClick={handleAudioPlay}
-          className=" absolute right-2 bottom-2 flex items-center justify-center text-xl bg-black w-12 h-12 rounded-full"
+          className=" absolute right-2 bottom-2  flex items-center justify-center text-xl bg-black w-12 h-12 rounded-full"
         >
           🔉
         </button>
