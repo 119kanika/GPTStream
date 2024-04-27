@@ -7,7 +7,6 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-
 # Constructing the App
 
 - npm create vite@latest
@@ -15,14 +14,14 @@ Currently, two official plugins are available:
 - Header
 - Login form and sign up form
 - Validation for forms
- - useref hook
+- useref hook
 - firebase setup and deployment
 - create signup and login in firebase
 - create store with redu
 - update store/userSlice with user info after they sign up
 - implement sign out
 - update profile
-- fetch data from TMDB 
+- fetch data from TMDB
 - bugfix of redirect user to browse page if logged in or sign up page if logged out.
 - unsubscribed to the onAuthStateChanged callback.
 - register for tmdb api and create an app and get access token.
@@ -35,10 +34,17 @@ Currently, two official plugins are available:
 - update store with trailer video data
 - embedded the youtube videe and make it autplay and mute
 - tailwind class to make it look desent
+- found tmdb cdn url
+- built secondary container with movie lists and series lists
+- custom hook for different movie categories
+- created movie Slice and update the store with movie data
 
+- GPT search feature
 
 # Features
+
 - Browse page after authentication
+
   - Header
   - Main Movie
     - Trailer in Bg
@@ -47,6 +53,7 @@ Currently, two official plugins are available:
       - movie list and vertical scroll
 
 - Browser page for logged out users
+
   - Login/signup page
     - redirect to browser page
 
@@ -54,14 +61,15 @@ Currently, two official plugins are available:
   - search bar
   - movie suggestions
 
-
 # Browse page structure
-- main video container 
+
+- main video container
   (needs data of a movie with trailer and title)
+
   - video bg
   - video title
 
 - Movie list container(secondary)
-  - movie * n
-    - movieCards * n
+  - movie \* n
+    - movieCards \* n
   - Trending/now playing/popular/genres/etc movies

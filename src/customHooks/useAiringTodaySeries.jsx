@@ -12,7 +12,6 @@ const useAiringTodaySeries = () => {
         const data = await fetch("https://api.themoviedb.org/3/tv/airing_today", API_OPTIONS);
         const json = await data.json()
 
-        console.log("airedList", json.results);
 
         dispatch(addAiredTodaySeries(json.results));
     }

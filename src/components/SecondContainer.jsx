@@ -22,10 +22,9 @@ const SecondContainer = () => {
   )
     return <div>Loading Movies...</div>;
 
-    console.log("result",airedToday);
 
   return (
-    <div className=" bg-black">
+    <div className=" bg-gradient-to-r from-neutral-900 to-black">
       <div className="-mt-54 pl-12 relative z-20">
         <MovieList title={"Now Playing"} movies={nowPlayingMovies} />
         <MovieList title={"Popular"} movies={popularMovies} />

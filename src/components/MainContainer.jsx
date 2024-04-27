@@ -22,7 +22,7 @@ const MainContainer = () => {
     if (!movies || movieItem === null) return null;
 
     // Retrieve the main movie using the stabilized movieItem index
-    const mainMovie = movies[movieItem];
+    const mainMovie = movies[13];
 
     // Destructure the required properties
     const { original_title, overview, id } = mainMovie;

@@ -9,6 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/UserSlice";
 import { LOGO } from "../utils/Constant";
+import { toggleGPTSearchView } from "../utils/GPTSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -57,6 +58,14 @@ const Header = () => {
 }, [])
 
 
+const handleGPTSearch = () => {
+  //toggle gptsearch
+  dispatch(toggleGPTSearchView())
+  console.log("Toggle clicked");
+  
+}
+
+
   return (
     <div className="absolute z-10 w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between">
       <img
@@ -67,6 +76,11 @@ const Header = () => {
 
       {user &&
         <div className="flex flex-row p-4 relative group cursor-pointer">
+          <button 
+          onClick={handleGPTSearch}
+          className="bg-red-600 hover:bg-red-500 rounded-md text-white py-2 px-4 mx-2 ">
+            Search
+          </button>
           <img
             className="w-12 h-12 hover:bg-slate-400 mr-4"
             src={user?.photoURL}
