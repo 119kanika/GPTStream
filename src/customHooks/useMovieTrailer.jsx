@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/Constant";
 import { addTrailerVideo } from "../utils/MovieSlice";
 
 
 const useMovieTrailer = (movieId) => {
+
+  const trailer = useSelector(store => store.movies.trailerVideo)
 
     const dispatch = useDispatch();
 
@@ -27,7 +29,7 @@ const useMovieTrailer = (movieId) => {
       };
     
       useEffect(() => {
-        getMovieVideo();
+       !trailer && getMovieVideo();
       }, []);
 }
 

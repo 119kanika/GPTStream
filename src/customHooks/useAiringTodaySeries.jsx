@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/Constant";
 import { useEffect } from "react";
 import { addAiredTodaySeries } from "../utils/MovieSlice";
 
 const useAiringTodaySeries = () => {
+
+    const airedToday = useSelector(store => store.movies.airedToday)
 
     const dispatch = useDispatch();
 
@@ -17,7 +19,7 @@ const useAiringTodaySeries = () => {
     }
 
     useEffect( () => {
-        getAiredSeriesList();
+       !airedToday && getAiredSeriesList();
     },[])
 
 }

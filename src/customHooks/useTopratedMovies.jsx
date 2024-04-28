@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/Constant";
 import { addTopRatedMovies} from "../utils/MovieSlice"
 
 const useTopRatedMovies = () => {
+
+    const topratedMovies = useSelector(store => store.movies.nowPlayingMovies)
 
     const dispatch = useDispatch();
 
@@ -17,7 +19,7 @@ const useTopRatedMovies = () => {
     }
 
     useEffect(() => {
-        getTopRatedMovies();
+        !topratedMovies && getTopRatedMovies();
     }, [])
 }
 

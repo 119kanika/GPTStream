@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/Constant";
 import { addUpcomingMovies} from "../utils/MovieSlice"
 
 const useUpcomingMovies = () => {
+
+    const upcomignMovies = useSelector(store => store.movies.nowPlayingMovies)
 
     const dispatch = useDispatch();
 
@@ -17,7 +19,7 @@ const useUpcomingMovies = () => {
     }
 
     useEffect(() => {
-        getUpcomingMovies();
+       !upcomignMovies && getUpcomingMovies();
     }, [])
 }
 
