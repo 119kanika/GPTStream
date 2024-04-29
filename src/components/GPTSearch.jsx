@@ -10,7 +10,7 @@ const GPTSearch = () => {
         <div className="pt-[24%] md:pt-[5%]">
           {/* <GeminiSearchBar /> */}
           <GptMovieSuggestion />
-        </div>
+        </div> 
       </div>
     </div>
   );

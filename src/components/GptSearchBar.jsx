@@ -31,7 +31,7 @@ const GptSearchBar = () => {
     const gptResults = await openai.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
       model: "babbage-002",
-    });
+    }); 
 
     if(!gptResults.choices) return null;
 

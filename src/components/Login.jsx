@@ -100,21 +100,21 @@ const Login = () => {
   };
 
   return (
-    <div className="absolute w-screen h-screen bg-no-repeat bg-cover bg-center bg-[url('https://maven-uploads.s3.amazonaws.com/120386748/projects/netflix%20image.jpg')">
+    <div >
       <Header />
-      <div >
-        {/* <img
+      <div className="absolute  ">
+        <img
           src={BG_IMG}
           alt="bg image"
-          className="bg-cover"
-        /> */}
+          className="object-cover w-screen h-screen"
+        />
       </div>
 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="p-12 bg-black absolute w-1/4 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-lg"
+        className="p-8 bg-black absolute w-[90%] sm:w-[30%] my-36 mx-auto right-0 left-0 text-white bg-opacity-90 sm:bg-opacity-90 rounded-lg"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className=" sm:font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 

@@ -10,6 +10,7 @@ import useUpcomingMovies from "../customHooks/useUpcomingMovies";
 import useAiringTodaySeries from "../customHooks/useAiringTodaySeries";
 import GPTSearch from "./GPTSearch";
 import { useSelector } from "react-redux";
+import FooterComp  from "./footer/FooterComp";
 
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
@@ -30,6 +31,7 @@ const Browse = () => {
         <>
           <MainContainer />
           <SecondContainer />
+          <FooterComp/>
         </>
       )}
     </div>

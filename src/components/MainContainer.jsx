@@ -23,7 +23,7 @@ const MainContainer = () => {
     if (!movies || movieItem === null) return null;
 
     // Retrieve the main movie using the stabilized movieItem index
-    const mainMovie = movies[5];
+    const mainMovie = movies[18];
 
     if (!mainMovie) return null;
 
