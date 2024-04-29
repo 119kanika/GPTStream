@@ -100,14 +100,14 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="absolute w-screen h-screen bg-no-repeat bg-cover bg-center bg-[url('https://maven-uploads.s3.amazonaws.com/120386748/projects/netflix%20image.jpg')">
       <Header />
-      <div className="absolute">
-        <img
+      <div >
+        {/* <img
           src={BG_IMG}
           alt="bg image"
           className="bg-cover"
-        />
+        /> */}
       </div>
 
       <form

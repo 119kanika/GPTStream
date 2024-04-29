@@ -24,8 +24,8 @@ const SecondContainer = () => {
 
 
   return (
-    <div className=" bg-gradient-to-r from-neutral-900 to-black">
-      <div className="-mt-54 pl-12 relative z-20">
+    <div className=" bg-gradient-to-r from-neutral-900 to-black font-bold">
+      <div className="sm:-mt-20 md:-mt-54 pl-10 pr-8 relative z-20 mt-10">
         <MovieList title={"Now Playing"} movies={nowPlayingMovies} />
         <MovieList title={"Popular"} movies={popularMovies} />
         <MovieList title={"Top Rated"} movies={topRatedMovies} />

@@ -20,9 +20,9 @@ const VideoBackground = ({ movieId }) => {
   };
 
   return (
-    <div className=" relativew-screen ">
+    <div className="  ">
       <iframe
-        className="w-screen aspect-video"
+        className="w-[100%] h-[50%] aspect-video"
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +
@@ -34,12 +34,15 @@ const VideoBackground = ({ movieId }) => {
         referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
 
+      <div className=" absolute right-[8%] top-[15%] sm:right-[2%] sm:top-[20%]  md:right-4 md:top-[78%]">
         <button
           onClick={handleAudioPlay}
-          className=" absolute right-2 bottom-2  flex items-center justify-center text-xl bg-black w-12 h-12 rounded-full"
+          className="  text-md md:text-lg bg-red-500 w-10 h-10 md:w-18 md:h-18 rounded-full hover:bg-red-600"
         >
           🔉
         </button>
+
+      </div>
     </div>
   );
 };

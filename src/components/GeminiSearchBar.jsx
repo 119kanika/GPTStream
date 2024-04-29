@@ -1,12 +1,11 @@
 import { useRef } from "react";
 import genAI from "../utils/GeminiAI";
 
-
 const GeminiSearchBar = () => {
     const searchText = useRef(null);
 
     const handleSearchClick = async () => {
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" })
 
         const prompt =
             "Act as a Movie/series Recommendation system and suggest some movies and series for the query " +
@@ -21,10 +20,10 @@ const GeminiSearchBar = () => {
     }
 
         return (
-            <div className="pt-[10%] ">
+            <div className="pt-[10%] flex justify-center">
                 <form
                     onSubmit={(e) => e.preventDefault()}
-                    className="w-1/2 mx-auto bg-black grid grid-cols-12"
+                    className="w-3/4 md:w-1/2 mx-auto bg-black grid grid-cols-12"
                 >
                     <input
                         ref={searchText}
