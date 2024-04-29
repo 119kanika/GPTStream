@@ -5,7 +5,7 @@ import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 
 const MainContainer = () => {
-    const movies = useSelector(store => store.movies?.nowPlayingMovies);
+    const movies = useSelector(store => store.movies?.popularMovies);
 
     // State to hold the selected movie item
     const [movieItem, setMovieItem] = useState(null);
@@ -16,13 +16,16 @@ const MainContainer = () => {
             const randomIndex = Math.floor(Math.random() * movies.length);
             setMovieItem(randomIndex);
         }
-    }, [movies]); // Only re-run if movies array changes
+    }, [movies]); 
+    // Only re-run if movies array changes
 
     // If movies are not loaded yet or if no movie has been selected, don't render anything
     if (!movies || movieItem === null) return null;
 
     // Retrieve the main movie using the stabilized movieItem index
-    const mainMovie = movies[13];
+    const mainMovie = movies[5];
+
+    if (!mainMovie) return null;
 
     // Destructure the required properties
     const { original_title, overview, id } = mainMovie;

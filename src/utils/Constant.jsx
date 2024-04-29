@@ -15,3 +15,5 @@ export const API_OPTIONS = {
 export const IMG_CDN = "https://image.tmdb.org/t/p/w500/"
 
 export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY
+
+export const GEMINI_API = import.meta.env.VITE_GEMINI_API;

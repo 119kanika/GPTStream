@@ -8,11 +8,12 @@ import { useDispatch } from "react-redux";
 const GptSearchBar = () => {
   const searchText = useRef(null);
   const dispatch = useDispatch();
+  console.log(searchText);
 
   //search movie in tmdb
   const searchMovieTmdb = async (movie) => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/search/movie?query=Animal&include_adult=false&language=en-US&page=1",
+      "https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1",
       API_OPTIONS
     );
     const jsonData = await data.json();
@@ -32,10 +33,12 @@ const GptSearchBar = () => {
       model: "gpt-3.5-turbo",
     });
 
+    if(!gptResults.choices) return null;
+
     console.log(gptResults.choices);
 
     //array result
-    const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
+    const gptMovies = gptResults.choices?.[0]?.message?.content.split(", ");
 
     //for each movie, search for tmdb api
     const dataArray = gptMovies.map((movie) => searchMovieTmdb(movie));
