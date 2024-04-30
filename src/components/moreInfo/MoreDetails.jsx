@@ -1,0 +1,47 @@
+/* eslint-disable react/prop-types */
+import  { useState } from 'react'
+import '../../index.css'
+
+
+const MoreDetails = ({ video, detail }) => {
+    const [like, setLike] = useState(false)
+
+    
+    return (
+        (!detail) ? null :
+            <div className=''>
+
+                <iframe className='w-full md:h-[50%] aspect-video'
+                    src={"https://www.youtube.com/embed/" + video + "?rel=0&autoplay=1&loop=1&playlist=" + video}
+                    title="YouTube video player"
+                    allow=" fullscreen; autoplay; picture-in-picture; web-share"
+                    allowFullScreen
+                ></iframe>
+                <div className='flex justify-between'>
+                    <div className='px-2 md:px-4 py-1 w-3/4 '>
+                        <h2 className='text-[13px] md:text-xl font-bold'>{detail?.title}</h2>
+                        <p className='text-[9px] md:text-xs text-slate-400 pl-0.5 md:pl-2'>{detail?.released.split('-').reverse().join('/')} &bull;&nbsp;
+                            {detail?.genres.slice(0,3).map((ele) => ele.charAt(0).toUpperCase() + ele.slice(1) + ' ')} &bull;&nbsp;
+                        </p>
+                    </div>
+                    <div className='px-2 md:px-4 py-1 md:py-2 w-1/8 md:w-1/4 flex items-start relative justify-between'>
+                        
+                        <button onClick={() =>setLike(!like)} className={!like?'text-slate-400 text-[13px] md:text-xl px-2 cursor-pointer':'text-red-600 text-xl px-2 cursor-pointer'}><i className="fa-solid fa-heart"></i></button>
+                    </div>
+
+                </div>
+                <div className=''>
+                    <div className='flex pl-4 py-0.5'>
+                        <h2 className='text-[10px] md:text-sm pl-1 w-4'>User Score</h2>
+                        <h4 className='text-xs md:text-sm text-slate-400 pl-12'><i>{detail?.tagline.slice(0,20)}</i></h4>
+                    </div>
+                    <div className='pl-4 pr-2 pt-1 '>
+                        <h2 className='text-sm md:text-base font-semibold'>Overview</h2>
+                        <p className='py-0.5 text-[10px] md:text-sm'>{detail?.overview.split(' ').splice(0,28).join(' ')} ...</p>
+                    </div>
+                </div>
+            </div>
+    )
+}
+
+export default MoreDetails

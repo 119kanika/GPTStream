@@ -5,7 +5,7 @@ import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 
 const MainContainer = () => {
-    const movies = useSelector(store => store.movies?.popularMovies);
+    const movies = useSelector(store => store.movies?.nowPlayingMovies);
 
     // State to hold the selected movie item
     const [movieItem, setMovieItem] = useState(null);
@@ -23,7 +23,7 @@ const MainContainer = () => {
     if (!movies || movieItem === null) return null;
 
     // Retrieve the main movie using the stabilized movieItem index
-    const mainMovie = movies[18];
+    const mainMovie = movies[movieItem];
 
     if (!mainMovie) return null;
 
@@ -31,7 +31,7 @@ const MainContainer = () => {
     const { original_title, overview, id } = mainMovie;
 
     return (
-        <div className="pt-[14%] md:pt-0">
+        <div className="invisible sm:visible sm:pt-0">
             <VideoTitle title={original_title} overview={overview}/>
             <VideoBackground movieId={id}/>
         </div>

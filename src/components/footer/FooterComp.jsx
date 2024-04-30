@@ -4,9 +4,9 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 const FooterComp = () => {
   return (
-    <Footer className="pt-40 bg-gradient-to-r from-neutral-900 to-black font-bold rounded-none">
+    <Footer className="pt-40 bg-gradient-to-r from-neutral-900 to-black font-bold rounded-none text-gray-300">
       <div className="w-full px-4 py-6 sm:flex sm:items-center sm:justify-between">
-          <FooterCopyright href="#" by="Flowbite™" year={2022} />
+          <FooterCopyright href="#" by="Netflix" year={2024} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <FooterIcon href="#" icon={BsFacebook} />
             <FooterIcon href="#" icon={BsInstagram} />

@@ -25,12 +25,12 @@ const SecondContainer = () => {
 
   return (
     <div className=" bg-gradient-to-r from-neutral-900 to-black font-bold">
-      <div className="-mt-10 sm:-mt-20 md:-mt-54 pl-10 pr-8 relative z-20 ">
-        <MovieList title={"Now Playing"} movies={nowPlayingMovies} />
-        <MovieList title={"Popular"} movies={popularMovies} />
-        <MovieList title={"Top Rated"} movies={topRatedMovies} />
-        <MovieList title={"Upcoming"} movies={upcomingMovies} />
+      <div className="-mt-32 sm:-mt-20 md:-mt-54 pl-0 sm:pl-10 pr-2 sm:pr-8 relative z-20 ">
+        <MovieList title={"Now Playing Movies"} movies={nowPlayingMovies} />
         <SeriesList title={"Now Airing Series"} series={airedToday} />
+        <MovieList title={"Top Rated Movies"} movies={topRatedMovies} />
+        <MovieList title={"Popular Movies"} movies={popularMovies} />
+        <MovieList title={"Upcoming Movies"} movies={upcomingMovies} />
       </div>
     </div>
   );
