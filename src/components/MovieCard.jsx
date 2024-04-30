@@ -4,15 +4,15 @@
 
 
 import { useState } from "react";
-import {IMG_CDN} from "../utils/Constant"
+import { IMG_CDN } from "../utils/Constant"
 import MoreInfoCard from "./moreInfo/MoreInfoCard";
 
-const MovieCard = ({posterPath, movieId, title, desc}) => {
+const MovieCard = ({ posterPath, movieId, title, desc }) => {
 
   const [showInfo, setShowInfo] = useState(false)
 
   const handleMouseOver = () => {
-      setShowInfo(true)
+    setShowInfo(true)
   }
 
   const handleMouseOut = () => {
@@ -20,19 +20,20 @@ const MovieCard = ({posterPath, movieId, title, desc}) => {
   }
 
 
-  if(!posterPath) return;
+  if (!posterPath) return;
 
   return (
     <div className="w-28 md:w-48 pr-4">
-      <div  onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
         <img src={IMG_CDN + posterPath} alt="" />
       </div>
-        <div  className="">
-        {
-          showInfo && <MoreInfoCard  movieId={movieId} title={title} desc={desc}/>
-        }
+      {
+        showInfo &&
+        <div className="hidden md:inline-block  ">
+          <MoreInfoCard movieId={movieId} title={title} desc={desc} />
 
         </div>
+      }
     </div>
   )
 }

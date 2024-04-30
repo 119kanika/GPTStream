@@ -5,7 +5,6 @@ import { useSelector } from "react-redux"
 import { useState } from "react"
 import useMovieTrailer from "../../customHooks/useMovieTrailer"
 import { FaPlay } from "react-icons/fa"
-import { resetTrailerVideo } from "../../utils/MovieSlice"
 
 
 const MoreInfoCard = ({ movieId, title, desc }) => {
@@ -23,7 +22,7 @@ const MoreInfoCard = ({ movieId, title, desc }) => {
 
 
   return (
-    <div className="flex-col absolute bg-zinc-700 w-[70vh] h-[65vh] z-50">
+    <div className=" md:flex-col md:absolute md:bg-zinc-700 md:w-[70vh] md:h-[65vh]">
       <div >
         <iframe
           className="w-[100%] h-[100%] aspect-video"
