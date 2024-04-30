@@ -5,12 +5,12 @@ import { useSelector } from "react-redux"
 import { useState } from "react"
 import useMovieTrailer from "../../customHooks/useMovieTrailer"
 import { FaPlay } from "react-icons/fa"
+import { resetTrailerVideo } from "../../utils/MovieSlice"
 
 
 const MoreInfoCard = ({ movieId, title, desc }) => {
-  console.log("infoCard", movieId);
 
-  const trailerVideo = useSelector(store => store.movies?.trailerVideo)
+  const video = useSelector(store => store.movies?.trailerVideo)
 
   useMovieTrailer(movieId)
 
@@ -21,14 +21,15 @@ const MoreInfoCard = ({ movieId, title, desc }) => {
     else setPlay(1);
   };
 
+
   return (
-    <div className="absolute bg-zinc-700 w-[70vh] h-[65vh] -mt-[20%]">
+    <div className="flex-col absolute bg-zinc-700 w-[70vh] h-[65vh] z-50">
       <div >
         <iframe
-          className="w-[100%] h-[50%] aspect-video"
+          className="w-[100%] h-[100%] aspect-video"
           src={
             "https://www.youtube.com/embed/" +
-            trailerVideo?.key +
+             video?.key +
             "?&autoplay=" + play + "&mute=1"
           }
           title="YouTube video player"

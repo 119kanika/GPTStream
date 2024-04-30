@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/Constant";
-import { addTrailerVideo } from "../utils/MovieSlice";
+import { addTrailerVideo, resetTrailerVideo } from "../utils/MovieSlice";
 
 
 const useMovieTrailer = (movieId) => {
@@ -18,24 +18,25 @@ const useMovieTrailer = (movieId) => {
           API_OPTIONS
         );
         const json = await data.json();
-
         
         const filteredData = json.results.filter(
-          (video) => video.type === "Trailer"
+          (video) =>  video.name === "Official Trailer" || video.type === "Trailer"
         );
-        console.log("filtered", filteredData);
         
         const trailer =
           filteredData.length == 0 ? filteredData[0] : json.results[0];
 
-          console.log("trailer", json.results);
 
         dispatch(addTrailerVideo(trailer));
       };
     
       useEffect(() => {
        !trailer && getMovieVideo();
-      }, [ trailer]);
+
+       return () => {
+        dispatch(resetTrailerVideo());
+      };
+      }, [ movieId]);
 }
 
 export default useMovieTrailer;

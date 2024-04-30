@@ -4,9 +4,9 @@
 import {  useSelector } from "react-redux";
 import useMovieTrailer from "../customHooks/useMovieTrailer";
 import { useState } from "react";
+import { resetTrailerVideo } from "../utils/MovieSlice";
 
 const VideoBackground = ({ movieId }) => {
-console.log("video", movieId);
 
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
 
@@ -19,6 +19,7 @@ console.log("video", movieId);
     if (audio) setAudio(0);
     else setAudio(1);
   };
+
 
   return (
     <div className="  ">
