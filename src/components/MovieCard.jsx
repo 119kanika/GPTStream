@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 // /* eslint-disable no-unused-vars */
 // /* eslint-disable react/prop-types */
@@ -7,7 +8,7 @@ import { useState } from "react";
 import { IMG_CDN } from "../utils/Constant";
 import MoreInfoCard from "./moreInfo/MoreInfoCard";
 
-const MovieCard = ({ posterPath, movieId, title, desc }) => {
+const MovieCard = ({ posterPath, movieId, title, desc, centered = false }) => {
   const [showInfo, setShowInfo] = useState(false);
 
   const handleMouseOver = () => {
@@ -20,9 +21,13 @@ const MovieCard = ({ posterPath, movieId, title, desc }) => {
 
   if (!posterPath) return;
 
+  const cardClasses = `movie-card w-28 md:w-48 pr-4 ${
+    centered ? "movie-card-centered" : ""
+  }`;
+
   return (
     <div
-      className="movie-card w-28 md:w-48 pr-4"
+      className={"movie-card w-28 md:w-48 pr-4"}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
     >
@@ -30,7 +35,7 @@ const MovieCard = ({ posterPath, movieId, title, desc }) => {
         <img src={IMG_CDN + posterPath} alt="" />
       </div>
       {showInfo && (
-        <div className="movie-card-info hidden md:inline-block  ">
+        <div className=" hidden md:inline-block  ">
           <MoreInfoCard movieId={movieId} title={title} desc={desc} />
         </div>
       )}

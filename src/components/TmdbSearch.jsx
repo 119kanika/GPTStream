@@ -62,21 +62,3 @@ const TmdbSearch = () => {
 };
 
 export default TmdbSearch;
-
-{
-  /* <div className="flex">
-          <h1>Results:</h1>
-          {searchData.map((result) => (
-            <div key={result.id} className="m-4 text-black">
-              <h1 className="text-lg py-2 pt-6 md:text-3xl mb-2">
-                {result.original_title}
-              </h1>
-              <img src={IMG_CDN + result.poster_path} alt="" />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <h1>No data</h1>
-      )}
-    </div> */
-}

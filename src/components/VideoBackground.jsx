@@ -34,7 +34,7 @@ const VideoBackground = ({ movieId }) => {
         referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
 
-      <div className=" absolute right-[8%] top-[15%] sm:right-[2%] sm:top-[5%]  md:right-[3%] md:top-[72%]">
+      <div className=" absolute right-[8%] top-[15%] sm:right-[2%] sm:top-[5%]  md:right-[3%] md:top-[73%]">
         <button
           onClick={handleAudioPlay}
           className="  text-md md:text-lg bg-red-500 w-10 h-10 md:w-18 md:h-18 rounded-full hover:bg-red-600"
