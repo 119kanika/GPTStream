@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useTmdbSearch from "../customHooks/useTmdbSearch";
-// import MovieList from "./MovieList";
+import { IMG_CDN } from "../utils/Constant";
 
 const TmdbSearch = () => {
   const [searchText, setSearchText] = useState("");
@@ -32,24 +32,51 @@ const TmdbSearch = () => {
           </button>
         </form>
       </div>
-      {searchData && (
-        <div>
-          SeachData.map((res) => (
-          <div className="m-4 text-white">
-            <div>
-              <h1>Results:</h1>
-              <div className="px-2 pt-4 ">
-                <h1 className="text-lg py-2 pt-6 md:text-3xl mb-2 text-white">
-                  {res.title}
-                </h1>
-              </div>
+
+      {searchData && searchData.length > 0 ? (
+        <div className=" px-0 md:px-2 md:pt-4 ">
+          <h1 className="text-md px-8 py-2 pt-6 md:text-3xl mb-2 text-white">
+            Your search result:{" "}
+            <span className="font-bold text-md md:text-3xl">{searchText}</span>
+          </h1>
+          <div className="my-12">
+            <div className="flex flex-wrap justify-center">
+              {searchData.map((result) => (
+                <div
+                  key={result.id}
+                  className=" m-1 md:m-2 w-24 md:w-48 px-0 md:pr-4 transition ease-in-out delay-130 hover:-translate-y-5 hover:scale-110 "
+                >
+                  <img src={IMG_CDN + result.poster_path} alt="" />
+                </div>
+              ))}
             </div>
           </div>
-          ))
         </div>
+      ) : (
+        <h1 className="text-center pt-4">
+          Search for your favourite movies and series
+        </h1>
       )}
     </div>
   );
 };
 
 export default TmdbSearch;
+
+{
+  /* <div className="flex">
+          <h1>Results:</h1>
+          {searchData.map((result) => (
+            <div key={result.id} className="m-4 text-black">
+              <h1 className="text-lg py-2 pt-6 md:text-3xl mb-2">
+                {result.original_title}
+              </h1>
+              <img src={IMG_CDN + result.poster_path} alt="" />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <h1>No data</h1>
+      )}
+    </div> */
+}

@@ -16,8 +16,6 @@ const useTmdbSearch = (movieName) => {
     const finalResult = json.results;
 
     setSearchData(finalResult);
-
-    console.log(finalResult);
   };
 
   useEffect(() => {
