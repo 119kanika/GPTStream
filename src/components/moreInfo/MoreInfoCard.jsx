@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useMovieTrailer from "../../customHooks/useMovieTrailer";
 import { FaPlay } from "react-icons/fa";
 
@@ -13,13 +13,25 @@ const MoreInfoCard = ({ movieId, title, desc }) => {
 
   const [play, setPlay] = useState(1);
 
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Simulating the visibility toggle on component mount for demonstration
+    setTimeout(() => {
+      setVisible(true);
+    }, 100); // delay to see the transition, remove or adjust as needed
+  }, []);
+
   const handlePlay = () => {
-    if (play) setPlay(0);
-    else setPlay(1);
+    setPlay((prev) => (prev ? 0 : 1));
   };
 
   return (
-    <div className=" md:flex-col  md:bg-zinc-700 md:w-[70vh] md:h-[65vh]">
+    <div
+      className={`md:flex-col md:bg-black text-white md:w-[70vh] md:h-[70vh] md:fixed md:top-[10%] md:right-[37%]
+    transition-opacity duration-500 ease-in-out transform
+    ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full"}`}
+    >
       <div>
         <iframe
           className="w-[100%] h-[100%] aspect-video"
