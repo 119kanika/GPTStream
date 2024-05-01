@@ -15,7 +15,7 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
 
-  const [searchClick, setSearchClick] = useState(false)
+  const [searchClick, setSearchClick] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -64,42 +64,40 @@ const Header = () => {
   const handleGPTSearch = () => {
     //toggle gptsearch
     dispatch(toggleGPTSearchView());
-    if(searchClick == false)    
-    setSearchClick(true)
-    
-    if(searchClick == true)    
-    setSearchClick(false)
+    if (searchClick == false) setSearchClick(true);
+
+    if (searchClick == true) setSearchClick(false);
   };
 
+  return (
+    <div className="absolute top-0 z-10 w-screen px-6 sm:px-12 sm:py-2 py-10  bg-gradient-to-b from-black flex  justify-between bg-black sm:bg-transparent">
+      <img className="w-18 h-12 sm:h-20 sm:w-44" src={LOGO} alt="" />
 
-   return (
-  <div className="absolute top-0 z-10 w-screen px-2 sm:px-8 sm:py-2 py-10  bg-gradient-to-b from-black flex  justify-between bg-black sm:bg-transparent">
-    <img className="w-18 h-12 sm:h-20 sm:w-44" src={LOGO} alt="" />
-
-    {user && (
-      <div className=" flex flex-row p-2 relative group cursor-pointer">
-        <div>
-        <button
-          onClick={handleGPTSearch}
-          className="bg-red-600 hover:bg-red-500 rounded-md text-white py-1 px-1 sm:py-2 sm:px-4 mx-2 ">
-          {searchClick ? "Home Page" : "Search"}
-        </button>
-        </div>
-
-
-        <div>
-          <img
-            className="w-8 h-8 sm:w-12 sm:h-12 hover:bg-slate-400 mr-0 sm:mr-4"
-            src={user?.photoURL}
-            alt="user-icon"
-          />
+      {user && (
+        <div className=" flex flex-row p-2 relative group cursor-pointer">
+          <div>
+            <button
+              onClick={handleGPTSearch}
+              className="bg-red-600 hover:bg-red-500 rounded-md text-white py-1 px-1 sm:py-2 sm:px-4 mx-2 sm:font-bold"
+            >
+              {searchClick ? "Back to Home Page" : "Search"}
+            </button>
+          </div>
 
           <div>
-            <div className=" hidden group-hover:block">
-              <div className="mt-2 flex flex-row">
+            <img
+              className="w-8 h-8 sm:w-10 sm:h-10 hover:bg-slate-400 mr-0"
+              src={user?.photoURL}
+              alt="user-icon"
+            />
+          </div>
+
+          <div>
+            <div className="">
+              <div className="">
                 <button
                   onClick={handleSignOut}
-                  className="font-bold mr-4 text-white"
+                  className="bg-gray-700  hover:bg-red-500 rounded-md text-white py-1 px-1 sm:py-2 sm:px-4 mx-2 sm:font-bold"
                 >
                   Sign Out
                 </button>
@@ -107,16 +105,12 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
-    )}
-  </div>
-);
-
-  
-  
+      )}
+    </div>
+  );
 };
 
 export default Header;
 
-
-
+// hidden group-hover:block
+//flex-flex-row
