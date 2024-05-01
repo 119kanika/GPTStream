@@ -1,14 +1,27 @@
-# React + Vite
+# GeminiStream
+A web-based platform where you can discover and explore movies and series similar to netflix or you can say Netflix itself!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tech Stack & Features
+1. The application is built using React, Redux, Tailwind CSS, Firebase, Gemini AP (Google Generative AI) for movie/series search and TMDB API.
+2. Providing ribust user experience with Full responsiveness for both mobile and desktop view.
+3. Netflix like hover feature displaying movie/series's trailer, name and overview.
+4. Dynamic search using Gemini AI with which you can search for variety of movies of your choices across any language.
+5. Backend and User authentication using Firebase for smooth sign in and sign out feature.
 
-Currently, two official plugins are available:
+## Demo
+https://gemini-stream-seven.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# Constructing the App
 
+
+
+
+
+
+
+
+
+# contructing the app 
 - npm create vite@latest
 - configure tailwind for vite
 - Header
@@ -41,35 +54,3 @@ Currently, two official plugins are available:
 
 - GPT search feature
 
-# Features
-
-- Browse page after authentication
-
-  - Header
-  - Main Movie
-    - Trailer in Bg
-    - Title and Description
-    - Movie suggestion
-      - movie list and vertical scroll
-
-- Browser page for logged out users
-
-  - Login/signup page
-    - redirect to browser page
-
-- GPT
-  - search bar
-  - movie suggestions
-
-# Browse page structure
-
-- main video container
-  (needs data of a movie with trailer and title)
-
-  - video bg
-  - video title
-
-- Movie list container(secondary)
-  - movie \* n
-    - movieCards \* n
-  - Trending/now playing/popular/genres/etc movies
