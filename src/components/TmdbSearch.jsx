@@ -13,7 +13,7 @@ const TmdbSearch = () => {
 
   return (
     <div>
-      <div className="pt-[10%] flex justify-center">
+      <div className="md:pt-[10%] pt-[15%] flex justify-center">
         <form
           onSubmit={handleSearchClick}
           className="w-3/4 md:w-1/2 mx-auto bg-black grid grid-cols-12"
@@ -21,7 +21,7 @@ const TmdbSearch = () => {
           <input
             onChange={(e) => setSearchText(e.target.value)}
             type="text"
-            className="p-4 m-4 col-span-8"
+            className=" p-2 m-2 md:p-4 md:m-4 col-span-8"
             placeholder="What are you planing to watch today?"
           />
           <button
@@ -53,7 +53,7 @@ const TmdbSearch = () => {
           </div>
         </div>
       ) : (
-        <h1 className="text-center pt-4">
+        <h1 className="text-center p-4">
           Search for your favourite movies and series
         </h1>
       )}

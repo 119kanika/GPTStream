@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import useMovieTrailer from "../customHooks/useMovieTrailer";
 import { useState } from "react";
 import { resetTrailerVideo } from "../utils/MovieSlice";
 
 const VideoBackground = ({ movieId }) => {
-
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
 
   //fetch trailer video from movie id and updating store with trailer video data.
@@ -19,7 +18,6 @@ const VideoBackground = ({ movieId }) => {
     if (audio) setAudio(0);
     else setAudio(1);
   };
-
 
   return (
     <div className="  ">
@@ -36,14 +34,13 @@ const VideoBackground = ({ movieId }) => {
         referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
 
-      <div className=" absolute right-[8%] top-[15%] sm:right-[2%] sm:top-[5%]  md:right-4 md:top-[78%]">
+      <div className=" absolute right-[8%] top-[15%] sm:right-[2%] sm:top-[5%]  md:right-[3%] md:top-[72%]">
         <button
           onClick={handleAudioPlay}
           className="  text-md md:text-lg bg-red-500 w-10 h-10 md:w-18 md:h-18 rounded-full hover:bg-red-600"
         >
           🔉
         </button>
-
       </div>
     </div>
   );

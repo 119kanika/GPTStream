@@ -18,7 +18,6 @@ const Login = () => {
 
   const [errorMessage, setErrorMessage] = useState(null);
 
-
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
   };
@@ -54,7 +53,7 @@ const Login = () => {
             photoURL: PHOTO_URL,
           })
             .then(() => {
-                const {uid, email, displayName, photoURL} = auth.currentUser;
+              const { uid, email, displayName, photoURL } = auth.currentUser;
               // Profile updated!
               dispatch(
                 addUser({
@@ -76,7 +75,10 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorMessage);
+          setErrorMessage(
+            (error.message =
+              "User already exists. Please use a different email id.")
+          );
           // ..
         });
     } else {
@@ -94,13 +96,15 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorMessage);
+          setErrorMessage(
+            (error.message = "Either password is wrong or user does not exist.")
+          );
         });
     }
   };
 
   return (
-    <div >
+    <div>
       <Header />
       <div className="absolute  ">
         <img
@@ -141,7 +145,9 @@ const Login = () => {
           className="p-4 my-2 w-full bg-gray-700 rounded-lg"
         />
 
-        <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
+        <p className="text-red-500 font-bold text-md md:text-lg py-2">
+          {errorMessage}
+        </p>
 
         <button
           className="p-4 my-6 bg-red-700 w-full rounded-lg"

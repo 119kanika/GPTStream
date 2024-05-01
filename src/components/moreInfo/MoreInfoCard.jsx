@@ -1,17 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useSelector } from "react-redux"
-import { useState } from "react"
-import useMovieTrailer from "../../customHooks/useMovieTrailer"
-import { FaPlay } from "react-icons/fa"
-
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import useMovieTrailer from "../../customHooks/useMovieTrailer";
+import { FaPlay } from "react-icons/fa";
 
 const MoreInfoCard = ({ movieId, title, desc }) => {
+  const video = useSelector((store) => store.movies?.trailerVideo);
 
-  const video = useSelector(store => store.movies?.trailerVideo)
-
-  useMovieTrailer(movieId)
+  useMovieTrailer(movieId);
 
   const [play, setPlay] = useState(1);
 
@@ -20,16 +18,17 @@ const MoreInfoCard = ({ movieId, title, desc }) => {
     else setPlay(1);
   };
 
-
   return (
-    <div className=" md:flex-col md:absolute md:bg-zinc-700 md:w-[70vh] md:h-[65vh]">
-      <div >
+    <div className=" md:flex-col  md:bg-zinc-700 md:w-[70vh] md:h-[65vh]">
+      <div>
         <iframe
           className="w-[100%] h-[100%] aspect-video"
           src={
             "https://www.youtube.com/embed/" +
-             video?.key +
-            "?&autoplay=" + play + "&mute=1"
+            video?.key +
+            "?&autoplay=" +
+            play +
+            "&mute=1"
           }
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -44,15 +43,11 @@ const MoreInfoCard = ({ movieId, title, desc }) => {
         <div className="py-4 px-6">
           <button onClick={handlePlay}>
             <FaPlay />
-
           </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MoreInfoCard
-
-
-
+export default MoreInfoCard;
